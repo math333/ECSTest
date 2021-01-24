@@ -1,5 +1,5 @@
+import {FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH,} from "./actionTypes";
 import * as api from "../api";
-import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART } from "./actionTypes";
 
 export const storeBookDetails=()=> async(dispatch) => {
     try{
@@ -27,5 +27,13 @@ export const removeItemFromCart = (item) =>{
         type: REMOVE_FROM_CART,
         info: 'Removes item from cart',
         payload: item
+    }
+}
+
+export const doSearch = (string) =>{
+    return{
+        type: SEARCH,
+        info: 'Does Searching',
+        payload: string
     }
 }

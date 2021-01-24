@@ -1,4 +1,4 @@
-import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART } from "./actionTypes";
+import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH } from "./actionTypes";
 
 const initialBooksDetails = {
     books: []
@@ -6,6 +6,10 @@ const initialBooksDetails = {
 
 const initialItemsInCart = {
     items: []
+}
+
+const initialSearchValue = {
+    searchString: ""
 }
 
 export const booksReducer = (state=initialBooksDetails, action) => {
@@ -31,6 +35,19 @@ export const addRemoveItemReducer = (state=initialItemsInCart, action) => {
             return {
                 ...state,
                 items: state.items.filter((itemInCart)=>itemInCart.bookID!=action.payload.bookID)          
+            }
+        default :
+            return state
+    }
+}
+
+
+export const searchingReducer = (state=initialSearchValue, action) => {
+    switch(action.type){
+        case SEARCH:
+            return {
+                ...state,
+                searchString: action.payload
             }
         default :
             return state

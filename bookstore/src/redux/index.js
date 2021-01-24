@@ -1,1 +1,1 @@
-export { storeBookDetails, addItemToCart, removeItemFromCart } from "./actions";
+export { storeBookDetails, addItemToCart, removeItemFromCart, doSearch } from "./actions";

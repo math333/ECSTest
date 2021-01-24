@@ -5,6 +5,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MoreIcon from '@material-ui/icons/More';
 import { useSelector } from 'react-redux';
 import useStyles from "./styles";
+import SearchBox from "./SearchBox/SearchBox";
 
 export default function Header() {
     const classes = useStyles();
@@ -67,6 +68,7 @@ export default function Header() {
           <Typography className={classes.title} variant="h6" noWrap>
             React Book Store
           </Typography>
+          <SearchBox/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           <IconButton

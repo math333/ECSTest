@@ -1,15 +1,14 @@
 import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import useStyles from "./style";
+import useStyles from "./styles";
 import { useDispatch, useSelector } from 'react-redux';
-import { doSearch } from "../../redux";
+import { doSearch } from "../../../redux";
 
-export const SearchBox = (props) => {
+export default function SearchBox(props) {
     const classes= useStyles();
     const dispatch = useDispatch();
     const searchText = useSelector((state)=>state.search.searchString);
-
 
     const handleSearch = (e) => {
         dispatch(doSearch(e.target.value));

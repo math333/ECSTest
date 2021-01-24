@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     grow: {
@@ -8,6 +8,18 @@ export default makeStyles((theme) => ({
       display: 'none',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
+      },
+    },
+    sectionDesktop: {
+      display: 'none',
+      [theme.breakpoints.up('md')]: {
+        display: 'flex',
+      },
+    },
+    sectionMobile: {
+      display: 'flex',
+      [theme.breakpoints.up('md')]: {
+        display: 'none',
       },
     },
   }));

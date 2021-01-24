@@ -7,5 +7,8 @@ export default makeStyles((theme) => ({
     },
     container: {
       maxHeight: 540,
-    }
+    },
+    makeInvisible:{
+      display:'none',
+    },
   }));

@@ -45,9 +45,9 @@ export default function Book(props) {
                 }
                 return (
                     <>
-                        <TableCell key={column.id} align={column.align} className = {clsx(!column.visibility && classes.makeInvisible)}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
-                        </TableCell>
+                          <TableCell key={column.id} align={column.align} className = {clsx(!column.visibility && classes.makeInvisible)}>
+                            {column.format && typeof value === 'number' ? column.format(value) : value}
+                          </TableCell>
                     </>
                         );
              })}

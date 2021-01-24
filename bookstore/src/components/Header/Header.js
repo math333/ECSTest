@@ -9,6 +9,7 @@ import SearchBox from "./SearchBox/SearchBox";
 import DensityToggler from "./DensityToggler/DensityToggler";
 import SortBox from "./SortBox/SortBox";
 import { Link } from 'react-router-dom';
+import ColumnSelector from './ColumnSelector/ColumnSelector';
 
 export default function Header() {
   const classes = useStyles();
@@ -79,6 +80,7 @@ export default function Header() {
           <SearchBox/>
           <SortBox/>
           <DensityToggler/>
+          <ColumnSelector/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           <Link to="/" className={classes.pageLink}>

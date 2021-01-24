@@ -7,60 +7,66 @@ import { useSelector } from 'react-redux';
 import useStyles from "./styles";
 import SearchBox from "./SearchBox/SearchBox";
 import DensityToggler from "./DensityToggler/DensityToggler";
+import { Link } from 'react-router-dom';
 
 export default function Header() {
-    const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  
-    const handleProfileMenuOpen = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleMobileMenuClose = () => {
-      setMobileMoreAnchorEl(null);
-    };
-  
-    const handleMobileMenuOpen = (event) => {
-      setMobileMoreAnchorEl(event.currentTarget);
-    };
-  
-    const menuId = 'primary-search-account-menu';
-   
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-      >
-        <MenuItem onClick={handleProfileMenuOpen}>
-          <IconButton
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-          >
-            <HomeIcon/>
-          </IconButton>
-          <p>Home</p>
-          </MenuItem>
-        <MenuItem>
-            <IconButton aria-label="ShoppingCart" color="inherit">
-            <Badge badgeContent={15} color="secondary">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-          <p>ShoppingCart</p>
-          </MenuItem>
-      </Menu>
-    );
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const itemsInCart = useSelector((state)=>state.itemsInCart.items);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const menuId = 'primary-search-account-menu';
+ 
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <Link to="/"  className={classes.mobilePageLink}>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <HomeIcon/>
+        </IconButton>
+        <p>Home</p>
+        </MenuItem>
+        </Link>
+        <Link to="/cart"  className={classes.mobilePageLink}>
+      <MenuItem>
+          <IconButton aria-label="ShoppingCart" color="inherit">
+          <Badge badgeContent={itemsInCart.length} color="secondary">
+            <ShoppingCartIcon />
+          </Badge>
+        </IconButton>
+        <p>ShoppingCart</p>
+        </MenuItem>
+        </Link>
+    </Menu>
+  );
 
   return (
     <div className={classes.grow}>
@@ -73,6 +79,7 @@ export default function Header() {
           <DensityToggler/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
+          <Link to="/" className={classes.pageLink}>
           <IconButton
               edge="end"
               aria-label="account of current user"
@@ -83,11 +90,15 @@ export default function Header() {
             >
               <HomeIcon />
             </IconButton>
+            </Link>
+           <Link to="/cart" className={classes.pageLink}>
             <IconButton aria-label="ShoppingCart" color="inherit">
-              <Badge badgeContent={15} color="secondary">
+              <Badge badgeContent={itemsInCart.length} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>
+            </Link>
+            
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
@@ -103,6 +114,6 @@ export default function Header() {
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-    </div> 
-    );
+    </div>
+  );
 }

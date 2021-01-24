@@ -22,4 +22,11 @@ export default makeStyles((theme) => ({
         display: 'none',
       },
     },
+    pageLink:{
+      color: 'white'
+    },
+    mobilePageLink:{
+      color:'black',
+      textDecoration:'none'
+    }
   }));

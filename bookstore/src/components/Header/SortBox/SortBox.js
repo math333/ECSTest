@@ -5,8 +5,10 @@ import FormControl from '@material-ui/core/FormControl';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from '@material-ui/core/Select';
 import { sortByColumn } from '../../../redux';
+import useStyles from './styles';
 
 export default function SortBox() {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const sortingType = useSelector((state)=>state.sortingType.sortType);
 
@@ -16,7 +18,7 @@ export default function SortBox() {
 
   return (
     <FormControl>
-        <InputLabel shrink id="demo-simple-select-placeholder-label-label">
+        <InputLabel shrink id="demo-simple-select-placeholder-label-label" className={classes.sortBox}>
           Sort By
         </InputLabel>
         <Select
@@ -24,7 +26,7 @@ export default function SortBox() {
           id="demo-simple-select-placeholder-label"
           value={sortingType}
           onChange={handleChange}
-          displayEmpty
+          displayEmpty className={classes.sortBox}
         >
           <MenuItem value='1_A'>Title Ascending</MenuItem>
           <MenuItem value='1_D'>Title Descending</MenuItem>

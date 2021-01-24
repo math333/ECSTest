@@ -6,6 +6,7 @@ import MoreIcon from '@material-ui/icons/More';
 import { useSelector } from 'react-redux';
 import useStyles from "./styles";
 import SearchBox from "./SearchBox/SearchBox";
+import DensityToggler from "./DensityToggler/DensityToggler";
 
 export default function Header() {
     const classes = useStyles();
@@ -69,6 +70,7 @@ export default function Header() {
             React Book Store
           </Typography>
           <SearchBox/>
+          <DensityToggler/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
           <IconButton

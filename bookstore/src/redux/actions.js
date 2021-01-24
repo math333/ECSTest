@@ -1,4 +1,4 @@
-import {FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH,} from "./actionTypes";
+import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH, CHANGE_DENSITY} from "./actionTypes";
 import * as api from "../api";
 
 export const storeBookDetails=()=> async(dispatch) => {
@@ -35,5 +35,12 @@ export const doSearch = (string) =>{
         type: SEARCH,
         info: 'Does Searching',
         payload: string
+    }
+}
+
+export const changeDensity=()=> {
+    return {
+        type: CHANGE_DENSITY,
+        info: 'Changes Density'
     }
 }

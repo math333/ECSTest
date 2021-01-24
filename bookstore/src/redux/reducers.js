@@ -1,4 +1,4 @@
-import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH } from "./actionTypes";
+import { FETCH_ALL, ADD_TO_CART, REMOVE_FROM_CART, SEARCH, CHANGE_DENSITY } from "./actionTypes";
 
 const initialBooksDetails = {
     books: []
@@ -10,6 +10,10 @@ const initialItemsInCart = {
 
 const initialSearchValue = {
     searchString: ""
+}
+
+const initialDensity ={
+    density:'M',
 }
 
 export const booksReducer = (state=initialBooksDetails, action) => {
@@ -48,6 +52,19 @@ export const searchingReducer = (state=initialSearchValue, action) => {
             return {
                 ...state,
                 searchString: action.payload
+            }
+        default :
+            return state
+    }
+}
+
+
+export const densityReducer = (state=initialDensity, action) => {
+    switch(action.type){
+        case CHANGE_DENSITY:
+            return {
+                ...state,
+                density: state.density==='M' ? 'S' : 'M'
             }
         default :
             return state

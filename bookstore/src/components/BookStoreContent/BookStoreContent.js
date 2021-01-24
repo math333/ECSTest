@@ -6,6 +6,7 @@ import StarRatings from 'react-star-ratings';
 const imgUrlPrefix = "http://covers.openlibrary.org/b/isbn/";
 
 export default function BookStoreContent(){
+  const size = useSelector((state)=>state.listDensity.density);
   const books = useSelector((state)=>state.storeBooks.books);
   const rows = books.map((book)=>createData(book));  
 
@@ -16,7 +17,7 @@ export default function BookStoreContent(){
         cover ="0"+cover;
     }
     cover = imgUrlPrefix + cover +'-M' +'.jpg';
-    cover = <img src = {cover} alt="Book Cover" height={'170'} width={'160'}/>
+    cover = <img src = {cover} alt="Book Cover" height={size==='M' ? '170' : '60'} width={size==='M' ? '160' : '50'}/>
     let title = book.title;
     let author = book.authors;
     let rating = <StarRatings rating={book.average_rating} starRatedColor="blue" numberOfStars={5} name='rating' starDimension="15px" starSpacing="1.0px"/>;

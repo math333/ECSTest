@@ -10,7 +10,7 @@ export default function DataTable(props) {
 
   const columns = [
     { id: 'cover', label: 'Cover', visibility: true },
-    { id: 'title', label: 'Title', visibility: true },
+    { id: 'title', label: 'Title', visibility: true, width:'120px' },
     { id: 'author', label: 'Author', visibility: true },
     { id: 'rating', label: 'Rating', visibility: true },
     { id: 'language', label: 'Language', visibility: true },

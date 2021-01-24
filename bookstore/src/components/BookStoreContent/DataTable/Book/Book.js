@@ -12,7 +12,7 @@ export default function Book(props) {
 
                 return (
                     <>
-                          <TableCell key={column.id} align={column.align}>
+                          <TableCell key={column.id} align={column.align} style={{maxWidth:column.width}}>
                             {column.format && typeof value === 'number' ? column.format(value) : value}
                           </TableCell>
                     </>

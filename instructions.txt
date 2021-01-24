@@ -1,0 +1,7 @@
+To run the project locally:-
+
+1) Go to bookstore folder by running cd bookstore
+2) Run npm install to install all dependencies
+3) Run npm start to start the project in local server
+
+To deploy the project firstly run npm build

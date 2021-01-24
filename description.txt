@@ -1,0 +1,8 @@
+This is a pseudo Book Store application developed using React.js.
+User can :-
+a) Sort items
+b) Search items
+c) Do column selection
+d) Make view densed
+e) Add items to cart
+f) Do the checkout

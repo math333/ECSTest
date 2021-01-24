@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import useStyles from "./styles";
 import SearchBox from "./SearchBox/SearchBox";
 import DensityToggler from "./DensityToggler/DensityToggler";
+import SortBox from "./SortBox/SortBox";
 import { Link } from 'react-router-dom';
 
 export default function Header() {
@@ -76,6 +77,7 @@ export default function Header() {
             React Book Store
           </Typography>
           <SearchBox/>
+          <SortBox/>
           <DensityToggler/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
